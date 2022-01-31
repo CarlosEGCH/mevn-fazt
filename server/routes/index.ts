@@ -30,12 +30,23 @@ router.get("/tasks/:id", async (req, res) => {
    }
 })
 
-router.delete("/tasks/:id", (req, res) => {
-    res.send("Deleting ONE task");
+router.delete("/tasks/:id", async (req, res) => {
+    try {
+    const task = await Task.findByIdAndDelete(req.params.id);
+
+    if(!task) return res.status(404).json({message: "Task not Found"});
+
+    return res.json(task);
+    } catch (error) {
+        return res.status(500).send(error);
+    }
 })
 
-router.put("/tasks/:id", (req, res) => {
-    res.send("Updating ONE task");
+router.put("/tasks/:id", async (req, res) => {
+    const updatedTasks = await Task.findByIdAndUpdate(req.params.id, req.body, {
+        new: true
+    });
+    res.json(updatedTasks);
 })
 
 export default router;
