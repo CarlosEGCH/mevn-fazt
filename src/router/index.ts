@@ -3,6 +3,7 @@ import {RouteRecordRaw, createRouter, createWebHistory} from 'vue-router';
 const routes: RouteRecordRaw[] = [
     {
         path: '/',
+        alias: '/tasks',
         name: 'tasks',
         component: () => import('@/components/TaskList.vue')
     },
