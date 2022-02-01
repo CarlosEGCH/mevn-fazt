@@ -11,7 +11,7 @@
 <script lang="ts">
 
 import {defineComponent} from 'vue';
-import {Task} from '@/interfaces/Task';
+import {Task} from '../interfaces/Task';
 
 export default defineComponent({
     data() {
