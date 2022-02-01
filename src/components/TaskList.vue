@@ -1,5 +1,9 @@
 <template>
-<h1>Task List</h1>
+<ul>
+    <li v-for="(task, index) in tasks" :key="index">
+        {{task.title}}
+    </li>
+</ul>
 </template>
 
 <script lang="ts">
