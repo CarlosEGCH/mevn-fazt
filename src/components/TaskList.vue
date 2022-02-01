@@ -4,13 +4,19 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
+import { Task } from '../interfaces/Task';
 import {getTasks} from '../services/TaskService'
 
 export default defineComponent({
+    data() {
+        return {
+            tasks: [] as Task[]
+        }
+    },
     methods: {
         async loadTasks() {
             const res = await getTasks();
-            console.log(res);
+            this.tasks = res.data;
         }
     },
     mounted() {
