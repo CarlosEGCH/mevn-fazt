@@ -1,6 +1,6 @@
 <template>
-    <nav>
-        <ul>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <ul><!--Unfinished CSS-->
             <li>
                 <router-link to="/">Tasks</router-link>
             </li>
